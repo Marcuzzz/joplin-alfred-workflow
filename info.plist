@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.marcotten.joplin_alfred_actions</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2E754175-0C97-4890-A0F0-5F69DE043245</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D59BCC57-E6F6-4B8D-A94D-F93445ACB52E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1BE4897D-FD74-4E22-9992-A9641ED0E0C2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Marc Otten</string>
+	<key>description</key>
+	<string>search and open notes</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Joplin Actions</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Joplin.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>2E754175-0C97-4890-A0F0-5F69DE043245</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D59BCC57-E6F6-4B8D-A94D-F93445ACB52E</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>jo</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading results...</string>
+				<key>script</key>
+				<string>on run argv
+    set query to item 1 of argv
+	
+	if application "Joplin" is not running then
+		display dialog "opening Joplin please, retry your search..."
+		tell application "Joplin" to activate
+	end if
+
+    if query is "" then
+        set jsonOutput to "{\"items\": [{\"title\": \"No notes found\", \"subtitle\": \"Try a different query?\", \"valid\": false, \"icon\": {\"path\": \"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertCautionIcon.icns\"}}]}"
+        return jsonOutput
+    else
+        set jsonOutput to do shell script "/opt/homebrew/bin/node app.js " &amp; quoted form of query
+        return jsonOutput
+    end if
+
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>alfred-emoji-picker</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Find note (new)...</string>
+				<key>type</key>
+				<integer>6</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>00E278B7-8E47-428C-B13E-3EAA77C20C4F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+ set theQuery to item 1 of argv
+
+ set myDelimiter to "="
+ set AppleScript's text item delimiters to myDelimiter
+
+ set myList to every text item of theQuery
+ set lastItem to last item of myList
+
+ set AppleScript's text item delimiters to ""
+
+ set newString to text 1 thru -2 of lastItem
+
+ set AppleScript's text item delimiters to ""
+
+  	try		set joplinLink to "joplin://x-callback-url/openNote?id=" &amp; newString				display dialog joplinLink				tell application "Joplin" to activate		open location joplinLink				end try
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1BE4897D-FD74-4E22-9992-A9641ED0E0C2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
+		<dict>
+			<key>xpos</key>
+			<real>180</real>
+			<key>ypos</key>
+			<real>345</real>
+		</dict>
+		<key>1BE4897D-FD74-4E22-9992-A9641ED0E0C2</key>
+		<dict>
+			<key>xpos</key>
+			<real>635</real>
+			<key>ypos</key>
+			<real>435</real>
+		</dict>
+		<key>2E754175-0C97-4890-A0F0-5F69DE043245</key>
+		<dict>
+			<key>xpos</key>
+			<real>630</real>
+			<key>ypos</key>
+			<real>135</real>
+		</dict>
+		<key>D59BCC57-E6F6-4B8D-A94D-F93445ACB52E</key>
+		<dict>
+			<key>xpos</key>
+			<real>630</real>
+			<key>ypos</key>
+			<real>285</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variables</key>
+	<dict>
+		<key>base_directory</key>
+		<string>.config/joplin-desktop</string>
+	</dict>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
