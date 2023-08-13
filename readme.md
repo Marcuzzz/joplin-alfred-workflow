@@ -1,2 +1,1 @@
-# My Awesome project
-![ Alt text]('')
+# Joplin Alfred Actions

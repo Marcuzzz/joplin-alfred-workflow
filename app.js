@@ -1,5 +1,4 @@
 const request = require('request');
-const { exec } = require('child_process');
 require('dotenv').config();
 
 const API_TOKEN = process.env.joplin_key;
@@ -37,6 +36,8 @@ searchNotes()
       arg: `[${note.title}](joplin://x-callback-url/openNote?id=${note.id})`, // Pass the note ID as an argument for Alfred to use later
       icon: {path: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertCautionIcon.icns"}
     }))}));
+
+    //process.exit(0)
 
   })
   .catch((err) => {

@@ -129,7 +129,7 @@
         set jsonOutput to "{\"items\": [{\"title\": \"No notes found\", \"subtitle\": \"Try a different query?\", \"valid\": false, \"icon\": {\"path\": \"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertCautionIcon.icns\"}}]}"
         return jsonOutput
     else
-        set jsonOutput to do shell script "node app.js " &amp; quoted form of query
+        set jsonOutput to do shell script "./joplinsearch " &amp; quoted form of query
         return jsonOutput
     end if
 
@@ -177,7 +177,15 @@ end run</string>
 
  set AppleScript's text item delimiters to ""
 
-  	try		set joplinLink to "joplin://x-callback-url/openNote?id=" &amp; newString				--display dialog joplinLink				tell application "Joplin" to activate		open location joplinLink				end try
+  	try
+		set joplinLink to "joplin://x-callback-url/openNote?id=" &amp; newString
+		
+		--display dialog joplinLink
+		
+		tell application "Joplin" to activate
+		open location joplinLink
+			
+	end try
 end run</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -195,7 +203,8 @@ end run</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Joplin Alfred Actions
+	</string>
 	<key>uidata</key>
 	<dict>
 		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
@@ -203,7 +212,7 @@ end run</string>
 			<key>xpos</key>
 			<real>180</real>
 			<key>ypos</key>
-			<real>345</real>
+			<real>340</real>
 		</dict>
 		<key>1BE4897D-FD74-4E22-9992-A9641ED0E0C2</key>
 		<dict>

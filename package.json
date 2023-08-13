@@ -1,7 +1,17 @@
 {
+  "name": "joplinsearch",
+  "version": "1.0.0",
+  "productName": "joplinsearch",
+  "license": "ISC",
+  "author": "Marc Otten",
+  "main": "./app.js",
   "dependencies": {
     "dotenv": "^16.3.1",
     "open": "^9.1.0",
     "request": "^2.88.2"
+  },
+  "outputPath": "release-builds/largtype-darwin-x64/",
+  "scripts": {
+    "package-mac": "nexe --build app.js -o joplinsearch"
   }
 }
