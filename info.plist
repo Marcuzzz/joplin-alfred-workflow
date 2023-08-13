@@ -204,7 +204,8 @@ end run</string>
 	</array>
 	<key>readme</key>
 	<string># Joplin Alfred Actions
-	</string>
+Make sure you have node installed...
+![chatfred](assets/images/chatfred.png)</string>
 	<key>uidata</key>
 	<dict>
 		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
@@ -263,7 +264,7 @@ end run</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>d22ec028b8493db1f2b5afbd8747d750f0d75f3107b5d67ee09253f8290f48a3e4717422cba30e361302fee8cf5181179cfa757f112e1050a4c733f6ce01544c</string>
+				<string></string>
 				<key>placeholder</key>
 				<string></string>
 				<key>required</key>

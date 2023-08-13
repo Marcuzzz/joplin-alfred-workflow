@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>joplin_key</key>
+	<string>616b30ea941e3209c3d0d23db25aba973521aef9a177fb289a497071f8c432345af8d9f83a71505ed7fa8ed17becb3db2e3df6adaf6962df1b81a1a37501d5b3</string>
+</dict>
 </plist>
