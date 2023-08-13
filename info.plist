@@ -203,9 +203,7 @@ end run</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># Joplin Alfred Actions
-Make sure you have node installed...
-![chatfred](assets/images/chatfred.png)</string>
+	<string># Joplin Alfred Actions</string>
 	<key>uidata</key>
 	<dict>
 		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
@@ -303,9 +301,11 @@ Make sure you have node installed...
 			<string>joplin_url</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Marcuzzz/joplin_alfred_actions</string>
 </dict>
 </plist>
