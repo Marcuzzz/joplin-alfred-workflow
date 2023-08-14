@@ -8,6 +8,6 @@
 
 ![add variables](assets/variables.png)
 
-* Workflow Alfred
+* Workflow Alfred ...
 
 ![Alt text](assets/workflow.png)
