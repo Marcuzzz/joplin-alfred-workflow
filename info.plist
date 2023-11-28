@@ -203,7 +203,19 @@ end run</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># Joplin Alfred Actions</string>
+		<string># Joplin Alfred Workflow
+
+* Demo
+
+![demo](assets/demo.gif)
+
+* Variables
+
+![add variables](assets/variables.png)
+
+* Workflow Alfred ...
+
+![Alt text](assets/workflow.png)</string>
 	<key>uidata</key>
 	<dict>
 		<key>00E278B7-8E47-428C-B13E-3EAA77C20C4F</key>
