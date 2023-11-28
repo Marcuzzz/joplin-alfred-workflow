@@ -29,7 +29,7 @@ echo "NEW VERSION: v$VERSION"
 echo "Building release..."
 echo
 mkdir releases 2> /dev/null
-zip "releases/$FILENAME" -r "$EXE" info.plist icon.png images/*
+zip "releases/$FILENAME" -r "$EXE" info.plist icon.png assets/*
 echo
 
 echo "Released $NAME v$VERSION"
