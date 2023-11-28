@@ -8,7 +8,7 @@ REPO=$(git config --get remote.origin.url | sed 's/.*\/\([^/]*\)\.git/\1/')
 if [ "$1" != "pass-patch" ]; then
     # Increment the patch version
     /opt/homebrew/bin/oc
-    npm version patch --force
+    #npm version patch --force
     echo "patched..."
 fi
 
