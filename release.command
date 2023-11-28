@@ -39,10 +39,10 @@ if [ "$1" != "pass-patch" ]; then
     # Create a new release...
     #git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
     #git push origin "v$VERSION"
-    #gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
+    gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
     echo "..."
 fi
 
 
-#echo "Opening new release"
-#open "./releases/$FILENAME"
+echo "Opening new release"
+open "./releases/$FILENAME"
