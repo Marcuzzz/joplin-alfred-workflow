@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.marcotten.joplin_alfred_actions</string>
+	<string>com.github.marcuzzz.joplin_alfred_workflow</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -129,7 +129,7 @@
         set jsonOutput to "{\"items\": [{\"title\": \"No notes found\", \"subtitle\": \"Try a different query?\", \"valid\": false, \"icon\": {\"path\": \"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertCautionIcon.icns\"}}]}"
         return jsonOutput
     else
-        set jsonOutput to do shell script "./joplinsearch " &amp; quoted form of query
+        set jsonOutput to do shell script "./joplin " &amp; quoted form of query
         return jsonOutput
     end if
 
