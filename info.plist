@@ -203,7 +203,7 @@ end run</string>
 		</dict>
 	</array>
 	<key>readme</key>
-		<string># Joplin Alfred Workflow
+	<string># Joplin Alfred Workflow
 
 * Demo
 
@@ -316,7 +316,7 @@ end run</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0.1</string>
+	<string>1.0.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/Marcuzzz/joplin_alfred_actions</string>
 </dict>

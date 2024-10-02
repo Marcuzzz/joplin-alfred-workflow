@@ -43,6 +43,12 @@ if [ "$1" != "pass-patch" ]; then
     echo "..."
 fi
 
+if [ "$2" == "--force" ]; then
+    git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
+    git push origin "v$VERSION"
+    gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
+    echo "..."
+fi
 
 echo "Opening new release"
-open "./releases/$FILENAME"
+#open "./releases/$FILENAME"
