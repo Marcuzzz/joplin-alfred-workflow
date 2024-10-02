@@ -35,20 +35,20 @@ echo
 echo "Released $NAME v$VERSION"
 echo " * releases/$FILENAME"
 
-if [ "$1" != "pass-patch" ]; then
-    # Create a new release...
-    git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
-    git push origin "v$VERSION"
-    gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
-    echo "..."
-fi
+# if [ "$1" != "pass-patch" ]; then
+#     # Create a new release...
+#     git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
+#     git push origin "v$VERSION"
+#     gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
+#     echo "..."
+# fi
 
 if [ "$2" == "--force" ]; then
-    git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
-    git push origin "v$VERSION"
-    gh release create "v$VERSION" "./releases/$FILENAME" --notes "Released $NAME v$VERSION"
+    # git tag -a "v$VERSION" -m "Released $NAME v$VERSION"
+    # git push origin "v$VERSION"
+    gh release upload "v$VERSION" "./releases/$FILENAME"
     echo "..."
 fi
 
-echo "Opening new release"
+#echo "Opening new release"
 #open "./releases/$FILENAME"
